@@ -59,5 +59,6 @@ dependencies {
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50"
 
     api "com.github.bumptech.glide:glide:$glide"
+    api 'org.greenrobot:eventbus:3.1.1'
 
 }
