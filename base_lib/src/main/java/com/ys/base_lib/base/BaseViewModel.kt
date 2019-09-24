@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 
+/**
+ * base viewmodel
+ */
 abstract class BaseViewModel : ViewModel(), LifecycleObserver {
 
     val mException: MutableLiveData<Throwable> = MutableLiveData()

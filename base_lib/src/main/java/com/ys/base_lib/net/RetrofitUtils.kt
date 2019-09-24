@@ -1,12 +1,10 @@
 package com.ys.baselib.net
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import java.util.logging.Logger
 
 /**
  * base retrofit
@@ -32,6 +30,9 @@ class RetrofitUtils {
                 .build()
         }
 
+        /**
+         * create retrofit client with baseUrl
+         */
         private fun getRetrofitClient(baseUrl: String): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -40,6 +41,9 @@ class RetrofitUtils {
                 .build()
         }
 
+        /**
+         * get retrofit client
+         */
         fun getService(baseUrl: String): Retrofit {
             var service = retrofitClient[baseUrl]
             if (service == null) {
