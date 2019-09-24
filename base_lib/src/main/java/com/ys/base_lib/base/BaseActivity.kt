@@ -3,7 +3,7 @@ package com.ys.base_lib.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 
 abstract class BaseActivity<VM:BaseViewModel>: AppCompatActivity() {
 
@@ -20,13 +20,13 @@ abstract class BaseActivity<VM:BaseViewModel>: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
-        initView()
-        initData()
         providerVM().let {
-            mViewModel = ViewModelProviders.of(this).get(it)
+            mViewModel = ViewModelProvider(this).get(it)
             lifecycle.addObserver(mViewModel)
             mViewModel.mException.observe(this, Observer { it?.let { onError(it) } })
         }
+        initView()
+        initData()
     }
 
     open fun onError(e:Throwable) {}
